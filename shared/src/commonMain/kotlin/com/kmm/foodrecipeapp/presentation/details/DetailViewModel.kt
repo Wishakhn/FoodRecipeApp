@@ -24,18 +24,20 @@ class DetailViewModel(
         is DetailEvent.NavigateBack -> effect.send(
             DetailEffect.NavigateBack
         ).thenNoAction()
-        is DetailEvent.HandleLoading -> flowOf(DetailStateReducer.HandleLoading(event.isLoading))
+        is DetailEvent.HandleLoading -> flowOf(DetailStateReducer.HandleLoading(event.data, event.error))
+        is DetailEvent.FetchRecipeDetails -> fetchRecipeDetails(event.id).thenNoAction()
+        is DetailEvent.UpdateSelectedRecipeInfo -> flowOf(DetailStateReducer.UpdateSelectedRecipeInfo(event.recipeInfo))
+
     }
 
     private fun fetchRecipeDetails(id: Int) = viewModelScope.launch {
-        setEvent(DetailEvent.HandleLoading(false))
         detailUseCase.execute(null).onStart { }.collect { response ->
             when (response) {
                 is ApiResponse.Success -> {
-                    setEvent(DetailEvent.HandleLoading(false))
+                    setEvent(DetailEvent.HandleLoading(response.data,null))
                 }
                 is ApiResponse.Error -> {
-                    setEvent(DetailEvent.HandleLoading(false))
+                    setEvent(DetailEvent.HandleLoading(null,response.error.message?:"Something Went Wrong"))
                 }
             }
 

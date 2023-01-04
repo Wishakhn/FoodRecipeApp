@@ -7,7 +7,7 @@ import com.kmm.foodrecipeapp.presentation.details.DetailViewModel
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
-fun RecipeDestinations(viewModel: DetailViewModel, navControler: DestinationsNavigator) {
+fun DetailsDestinations(viewModel: DetailViewModel, navControler: DestinationsNavigator) {
     onStateConsumed(viewModel::getStateProcessor, onEffect = { effect ->
         when (effect) {
             is DetailEffect.NavigateBack -> navControler.popBackStack()

@@ -21,10 +21,15 @@ class RecipeViewModel(
         event: RecipeEvent, effect: Effects<RecipeEffect>
     ): Flow<Intent<RecipeStateModel>> = when (event) {
         is RecipeEvent.NavigateToReicipeDetails -> effect.send(
-            RecipeEffect.NavigateToReicipeDetails
+            RecipeEffect.NavigateToReicipeDetails(event.recipeModel)
         ).thenNoAction()
         is RecipeEvent.NavigateBack -> effect.send(RecipeEffect.NavigateBack).thenNoAction()
-        is RecipeEvent.HandleLoading -> flowOf(RecipeStateReducer.HandleLoading(event.data,event.error))
+        is RecipeEvent.HandleLoading -> flowOf(
+            RecipeStateReducer.HandleLoading(
+                event.data,
+                event.error
+            )
+        )
         is RecipeEvent.RequestRecipeList -> fetchRecipeList().thenNoAction()
     }
 

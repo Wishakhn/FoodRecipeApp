@@ -56,7 +56,7 @@ fun WelcomeScreen(destinationsNavigator: DestinationsNavigator) = ConstraintLayo
             )
         )
 ) {
-    val viewModel : WelcomeViewModel = koinViewModel()
+    val viewModel: WelcomeViewModel = koinViewModel()
     val processor = viewModel.getStateProcessor()
     val (topLayer, Title, subTitle, button) = createRefs()
     Box(modifier = Modifier
@@ -125,5 +125,5 @@ fun WelcomeScreen(destinationsNavigator: DestinationsNavigator) = ConstraintLayo
         }
     }
 
-    WelcomeScreenDestination(viewModel,destinationsNavigator)
+    WelcomeScreenDestination(viewModel, destinationsNavigator)
 }

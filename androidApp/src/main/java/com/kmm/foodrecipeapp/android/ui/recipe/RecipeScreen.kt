@@ -1,5 +1,6 @@
 package com.kmm.foodrecipeapp.android.ui.recipe
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,9 +12,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import com.kmm.foodrecipeapp.android.R
 import com.kmm.foodrecipeapp.android.navigation.FoodNavGraph
 import com.kmm.foodrecipeapp.android.navigation.base.DefaultTransitions
 import com.kmm.foodrecipeapp.android.navigation.destinations.RecipeDestinations
@@ -62,7 +66,7 @@ fun RecipeScreen(destinationsNavigator: DestinationsNavigator) = ConstraintLayou
             }
 
     ) {
-        items(reponse.value?.recipes?: listOf()) { item ->
+        items(reponse.value?.recipes ?: listOf()) { item ->
             Column(
                 Modifier
                     .fillMaxWidth()
@@ -73,12 +77,21 @@ fun RecipeScreen(destinationsNavigator: DestinationsNavigator) = ConstraintLayou
         }
     }
 
-    if (reponse.value == null && error.value.isNullOrBlank())
-        CircularProgressIndicator(modifier = Modifier.constrainAs(progress) {
+    if (reponse.value == null && error.value.isNullOrBlank()) {
+        Column(modifier = Modifier.constrainAs(progress) {
             linkTo(parent.start, parent.end)
             top.linkTo(parent.top)
             bottom.linkTo(parent.bottom)
-        })
+        }) {
+            Image(
+                painter = painterResource(
+                    id = R.drawable.ic_loade_wait
+                ), contentDescription = ""
+            )
+            CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
+        }
+    }
+
     RecipeDestinations(viewModel, destinationsNavigator)
 }
 

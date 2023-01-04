@@ -13,7 +13,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.kmm.foodrecipeapp.android.theme.FoodRecipeTheme
 import com.kmm.foodrecipeapp.android.ui.NavGraphs
-import com.kmm.foodrecipeapp.android.ui.welcome.WelcomeScreen
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
 

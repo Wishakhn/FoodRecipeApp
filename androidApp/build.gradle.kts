@@ -68,6 +68,7 @@ dependencies {
     implementDiDependencies()
     implementComposeDependencies()
     ksp(ComposeDependencies.COMPOSE_NAV_KSP)
+    implementation(LocalStorageDependencies.ANDROID_DATA_STORE)
     implementAndroidXDependencies()
     implementAccompanistDependencies()
     implementKtorAndroidDependencies()

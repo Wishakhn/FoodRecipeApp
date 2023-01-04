@@ -43,3 +43,6 @@ fun DetailResponse.toRecipeModel() = RecipeModel(
     }?.toList()
 )
 
+
+
+
