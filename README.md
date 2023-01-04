@@ -18,6 +18,13 @@
 * SOLID Principles (Interface segrigation, dependency inversion)
 
 ### Demonstration of Base, Repository layer, with some Custom widgets OR components ###
+<img width="360" alt="Screenshot 2023-01-04 at 4 57 12 PM" src="https://user-images.githubusercontent.com/11786840/210550551-d0c78ed1-68dc-4517-bdef-f4260f8a8990.png">
+<img width="367" alt="Screenshot 2023-01-04 at 4 57 22 PM" src="https://user-images.githubusercontent.com/11786840/210550565-de9bb5a6-a3f3-459c-aa37-5b0ae75a2b12.png">
+<img width="363" alt="Screenshot 2023-01-04 at 4 57 45 PM" src="https://user-images.githubusercontent.com/11786840/210550572-f3522b82-dcc8-46b5-ad34-6f9dd2349d89.png">
+<img width="363" alt="Screenshot 2023-01-04 at 4 58 17 PM" src="https://user-images.githubusercontent.com/11786840/210550587-87d754b1-1299-4a58-be42-8572130c6439.png">
+<img width="364" alt="Screenshot 2023-01-04 at 4 58 34 PM" src="https://user-images.githubusercontent.com/11786840/210550609-5ccb5532-6b4c-437a-8761-45681a106396.png">
+
+
 
 ## Project contains three basic layers of Clean Architecture ##
 * Data Layer
